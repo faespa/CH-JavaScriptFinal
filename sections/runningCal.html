@@ -15,38 +15,37 @@
 </head>
 
 <body>
-    <header>
-    </header>
-
     <div class="px-4 py-5 text-center fondo">
-        <!-- <h1 class="display-5 fw-bold">Running</h1> -->
-        <!-- <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">"When I got tired, I slept. When I got hungry, I ate. When I had to go, you know, I went."</p>
-            <figcaption class="blockquote-footer">
-                Forrest<cite title="Source Title">Gump</cite>
-              </figcaption>
-        </div> -->
+        <div>
+            <h1 class="display-5 fw-bold">Save your Times</h1>
+        </div>
     
         <div class="d-flex pb-2 justify-content-center">
             <div class="w-50 p-1 rounded-3 border border-warning bg-transparent" style="background-color: #eee;">
                 <form id="forms" class="row needs-validation" novalidate="">
-                    <h3 class="display-8">Calculate your Average peace</h3>
+                    <h3 class="display-8">Add your time and Distance</h3>
                     <div class="px-5">
                         <p clas="">Expected time to finish</p>
                     </div>
-                    <div class=" col-md-4 position-relative">
+                    <div class=" col-md-3 position-relative">
                         <div class="form-floating">
                             <input type="number" class="form-control" id="hours" required="">
                             <label for="floatingInput">hours</label>
                         </div>
                     </div>
-                    <div class="col-md-4 position-relative">
+                    <div class="col-md-3 position-relative">
                         <div class="form-floating">
                             <input type="number" class="form-control" id="minutes" required="">
                             <label for="floatingPassword">Minutes</label>
                         </div>
                     </div>
-                    <div class="col-md-4 position-relative">
+                    <div class="col-md-3 position-relative">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="segundes" required="">
+                            <label for="floatingPassword">segundes</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
                         <div class="form-floating ">
                             <select class="form-select" id="distance" aria-label="Floating label select example">
                                 <option value="5">5 Km</option>
@@ -67,50 +66,15 @@
                         <div class="col-12 text-center" id="solveAvg"></div>
                     </div>
                 </form>
-
-
-                <form id="forms2" class="row needs-validation" novalidate="">
-                    <h3 class="display-8">Calculate your Time</h3>
-                    <div class="px-5">
-                        <p clas="">Expected Average peace</p>
-                    </div>
-                    <div class=" col-md-4 position-relative">
-                        <div class="form-floating">
-                            <input type="number" class="form-control"   id="avgMinutes" required="">
-                            <label for="floatingInput">Minutes</label>
-                        </div>
-                    </div>
-                    <div class="col-md-4 position-relative">
-                        <div class="form-floating">
-                            <input type="number" class="form-control"  id="avgSeconds" required="">
-                            <label for="floatingPassword">Seconds</label>
-                        </div>
-                    </div>
-                    <div class="col-md-4 position-relative">
-                        <div class="form-floating ">
-                            <select class="form-select" id="distance2" aria-label="Floating label select example">
-                                <option value="5">5 Km</option>
-                                <option value="10">10 Km</option>
-                                <option value="15">15 Km</option>
-                                <option value="21">21 Km</option>
-                                <option value="42">42 Km</option>
-                            </select>
-                            <label for="floatingSelect">Distance</label>
-                        </div>
-                    </div>
-
-                    <div class="p-3 d-flex justify-content-end">
-                        <button type="submit2" id="submit2" class="btn btn-outline-success d-flex center-block">Calculate</button>
-                    </div> 
-
-                    <div class="row">
-                        <div class="col-12 text-center" id="solveTime"></div>
-                    </div>
-                </form>
             </div>
         </div>
-        
+    </div>   
+    
+    <div class="cont-list" id="listTimes"></div>
+
+
     <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/cal.js"></script>
 </body>

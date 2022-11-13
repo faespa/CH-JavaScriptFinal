@@ -1,38 +1,22 @@
-// get object form local storage and convert from JSOn to Object
-//const cliente = JSON.parse(localStorage.getItem("data"));
-    
 //get forms and buttons by ID
 const formu = document.getElementById("forms");
-const formu2 = document.getElementById("forms2");
 const submit1 = document.getElementById("submit1");
-const submit2 = document.getElementById("submit2");
 
-//Data to calculate peace
+let arrayTime = localStorage.getItem("arrayTimes") ? JSON.parse(localStorage.getItem("arrayTimes")) : [];
+class Time {
+    constructor(hours, minutes, segundes, distance) {
+        this.hours = hours;
+        this.minutes = minutes;
+        this.segundes = segundes;
+        this.distance = distance;
+    }
+}
+
+//Data to add
     submit1.addEventListener("click", (e) => {
-        e.preventDefault();
-        
-        validation1()
-        const hours = parseInt(document.getElementById("hours").value);
-        const minutes = parseInt(document.getElementById("minutes").value);
-        const distance = parseInt(document.getElementById("distance").value);
-
-        calculationAVG(hours, minutes, distance);
-
-        formu.classList.add('was-validated')
-    })
-
-//Data to calculatie Time
-    submit2.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        validation2()
-        const avgMinutes = parseInt(document.getElementById("avgMinutes").value);
-        const avgSeconds = parseInt(document.getElementById("avgSeconds").value);
-        const avgDistance = parseInt(document.getElementById("distance2").value);
-
-        calculationTime(avgMinutes, avgSeconds, avgDistance);
-
-        formu2.classList.add('was-validated')
+        e.preventDefault();     
+        validation1();
+        saveRun();
     })
 
 // functions validations
@@ -45,54 +29,42 @@ const validation1 = () => {
         const verm = document.getElementById("minutes");
         verm.value = 0;
     }
-} 
-const validation2 = () => {
-    if (document.getElementById("avgMinutes").value === "") {
-        const vermin = document.getElementById("avgMinutes");
-        vermin.value = 0;
-    }
-    if (document.getElementById("avgSeconds").value === "") {
-        const verseg = document.getElementById("avgSeconds");
-        verseg.value = 0;
+    if (document.getElementById("segundes").value === "") {
+        const verm = document.getElementById("segundes");
+        verm.value = 0;
     }
 } 
 
-// funcrion calculate average
-const calculationAVG = (h,m,d) => {
-    let s = h*3600 + m*60;
-    let avgSeconds = s/d;
-    let avgmin = Math.floor(avgSeconds/60);
-    let avgmod = Math.round(avgSeconds%60);
-    console.log(avgmin + "  " + avgmod);                                                                       
-    mostrarSolveAVG(avgmin, avgmod);
+// funcrion save data
+const saveRun = () => {
+    const hours = parseInt(document.getElementById("hours").value);
+    const minutes = parseInt(document.getElementById("minutes").value);
+    const segundes = parseInt(document.getElementById("segundes").value);
+    const distance = parseInt(document.getElementById("distance").value);
+    
+    const time = new Time(hours, minutes, segundes, distance);                                                                    
+    arrayTime.push(time);
+    localStorage.setItem("arrayTimes", JSON.stringify(arrayTime));
+    Swal.fire ( {
+        title: "Time Saved",
+        icon: "success",
+        timer: 2000,
+        showConfirmButton: false,
+    }).then((result) => {
+        formu.reset();
+    })
 } 
 
-// funcrion calculate Time
-const calculationTime = (m,s,d) => {
-    let con2s = (m*60 + s)*d;
-    let hour = Math.floor(con2s / 3600);
-    let min = Math.floor((con2s % 3600)/60);
-    let seg = Math.round((con2s % 3600)%60);
 
-    let avgmin = Math.floor(avgSeconds/60);
-    let avgmod = Math.round(avgSeconds%60);                                                                    
-    mostrarSolveTime(hour, min, seg);
-} 
+//show  Saved Times
+const listTimes = document.getElementById("listTimes");
 
-//show  AVG
-const solveAvg = document.getElementById("solveAvg");
+arrayTime.forEach( time => {
+    console.log(time);
+    listTimes.innerHTML += `
+        <h5>${time.distance} Km</h2>
+        <p>${time.hours} : ${time.minutes} : ${time.segundes}</p>
+    </li>
+    `
+})
 
-const mostrarSolveAVG = (m,s) => {
-    let aux = "";
-    aux += `<h4 class="resultado alert alert-success" role="alert">, Your Average Peace will be ${m}:${s} min/Km</h4>`
-    solveAvg.innerHTML = aux;
-}
-
-//show Time
-const solveTime = document.getElementById("solveTime");
-
-const mostrarSolveTime = (h,m,s) => {
-    let aux = "";
-    aux += `<h4 class="resultado alert alert-success" role="alert"> Your Time will be ${h}:${m}:${s} </h4>`
-    solveTime.innerHTML = aux;
-}

@@ -48,3 +48,16 @@ main label {
     background-color: palegreen;
     opacity: 0.8;
 }
+
+.cont-list {
+    list-style: none;
+    margin: 5rem 2rem;
+}
+.cont-list li {
+    display: flex;
+    list-style: none;
+}
+.cont-list li p{
+    padding-left: 1rem;
+    font-weight: bold;
+}
