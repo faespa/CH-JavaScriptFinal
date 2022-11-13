@@ -1,0 +1,172 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <title>Proyecto Final</title>
+</head>
+
+<body>
+    <div class="fondo position-relative">
+        <div class="">
+            <h1 class="display-5 fw-bold text-center">Running</h1>  
+            <p class="lead mb-4 text-center">"When I got tired, I slept. When I got hungry, I ate. When I had to go, you know, I went."</p>
+            <figcaption class="blockquote-footer text-center">
+                <cite title="Source Title">Forrest Gump</cite>
+            </figcaption>
+        </div>
+        <div class=" d-flex justify-content-center">
+            <form class="row w-50 p-3 mt-2 mx-3" id="formLogin" style="background-color: #eee;" >
+                <h2>Log In</h2>
+                <h4>To Save and See your records</h4>
+                <div class="p-3 col-sm-6">
+                    <div class="form-floating" >
+                        <input type="email" class="form-control" id="email" placeholder="Your email" required>
+                        <label for="floatingInput">Mail</label>
+                    </div>
+                </div>
+
+                <div class="p-3 col-sm-6">
+                    <div class="form-floating" >
+                        <input type="password" class="form-control" id="password" placeholder="Your password" required>
+                        <label for="floatingInput">Password</label>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="d-flex justify-content-end">
+                        <button  type="submit" id="signup" class="btn btn-outline-info d-flex center-block">Sign Up</button>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" id="login"class="btn btn-outline-success d-flex center-block">Log In</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="position-fixed card col-sm-3 pt-3 mr-3 card-weather">
+                <div class="row g-0">
+                    <div class = "cont-feth">
+                        <div id="divClima"></div>
+                        <div id="records">
+                            <h2>Records</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- <aside>
+            <div id="divClima"></div>
+            <div id="records"></div>
+        </aside> -->
+        
+    
+    </div>
+
+    <main>
+        <section class="m-5 pt-2 fc text-center parallax ">
+            <h2>Time Calculation</h2>
+            <div class="d-flex justify-content-center">
+                <div class="w-50 px-3 mb-5 mb-2 rounded-3 border border-warning bg-transparent " style="background-color: #eee;">
+                    <form id="forms" class="row needs-validation" novalidate="">
+                        <h4 class="display-8">Calculate your Average peace</h4>
+                        <div class="px-5">
+                            <p clas="">Expected time to finish</p>
+                        </div>
+                        <div class=" col-md-4 position-relative">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="hours" required="">
+                                <label for="floatingInput">hours</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 position-relative">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="minutes" required="">
+                                <label for="floatingPassword">Minutes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 position-relative">
+                            <div class="form-floating ">
+                                <select class="form-select" id="distance" aria-label="Floating label select example">
+                                    <option value="5">5 Km</option>
+                                    <option value="10">10 Km</option>
+                                    <option value="15">15 Km</option>
+                                    <option value="21">21 Km</option>
+                                    <option value="42">42 Km</option>
+                                </select>
+                                <label for="floatingSelect">Distance</label>
+                            </div>
+                        </div>
+
+                        <div class=" p-3 d-flex justify-content-end">
+                            <button type="submit" id="submit1" class="btn btn-success d-flex center-block">Calculate</button>
+                        </div> 
+
+                        <div class="row"> <!-- MUESTRO LOS DATOS -->  
+                            <div class="col-12 text-center" id="solveAvg"></div>
+                        </div>
+                    </form>
+
+                    <form id="forms2" class="row needs-validation" novalidate="">
+                        <h4 class="display-8">Calculate your Time</h4>
+                        <div class="px-5">
+                            <p clas="">Expected Average peace</p>
+                        </div>
+                        <div class=" col-md-4 position-relative">
+                            <div class="form-floating">
+                                <input type="number" class="form-control"   id="avgMinutes" required="">
+                                <label for="floatingInput">Minutes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 position-relative">
+                            <div class="form-floating">
+                                <input type="number" class="form-control"  id="avgSeconds" required="">
+                                <label for="floatingPassword">Seconds</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 position-relative">
+                            <div class="form-floating ">
+                                <select class="form-select" id="distance2" aria-label="Floating label select example">
+                                    <option value="5">5 Km</option>
+                                    <option value="10">10 Km</option>
+                                    <option value="15">15 Km</option>
+                                    <option value="21">21 Km</option>
+                                    <option value="42">42 Km</option>
+                                </select>
+                                <label for="floatingSelect">Distance</label>
+                            </div>
+                        </div>
+
+                        <div class="p-3 d-flex justify-content-end">
+                            <button type="submit2" id="submit2" class="btn btn-success d-flex center-block">Calculate</button>
+                        </div> 
+
+                        <div class="row">
+                            <div class="col-12 text-center" id="solveTime"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <!-- JavaScript -->
+        <!-- SWEET ALERT -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

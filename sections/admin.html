@@ -1,0 +1,48 @@
+<!doctype html>     
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preload" href="../css/normalize.css" as="style">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="preload" href="..css/styles.css" as="style">
+    <link href="..css/styles.css" rel="stylesheet"> 
+
+    <title>Desafio 3 JavaScript</title>
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <div class="d-flex justify-content-center">
+        <div class=" w-75 p-3" id="formLogin" style="background-color: #eee;" >
+            Log In
+            <div class="p-3">
+                <div class="form-floating" >
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">User</label>
+                </div>
+            </div>
+            <div class="p-3">
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-outline-dark d-flex center-block" id="btn-login" data-bs-toggle="button" autocomplete="off">Log In</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/adminlogin.js"></script>
+</body>
+</html>
